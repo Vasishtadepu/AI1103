@@ -1,0 +1,79 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tcolorbox}
+\title{Assignment-4}
+\author{Adepu Vasisht}
+\date{CS20BTECH11002}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\begin{document}
+
+\maketitle
+\section*{GATE 2021(ST) Q.No 16}
+Let $X$ be a random variable having distribution function 
+\begin{equation}
+\nonumber F(x)=
+\begin{cases}
+0, \quad x<1\\
+\frac{a}{2}, \quad  1\leq x<2\\
+\frac{c}{6}, \quad 2\leq x<3\\
+1, \quad x\geq3
+\end{cases}
+\end{equation}
+where $a$ and $c$ are appropriate constants. Let\\$A_n = \left[1+\frac{1}{n},3-\frac{1}{n}\right]$, $n\geq1$, and $A = \bigcup_{i=1}^{\infty}A_i$. If $\Pr\brak{X\leq1} = \frac{1}{2}$ and $E\brak{X} = \frac{5}{3}$, then $\Pr\brak{X\in A}$ equals to?
+
+\section*{Solution}
+\subsection{Finding $a$ and $c$}
+Clearly we can see that $X$ is a discrete random variable since given $a$ and $c$ are constants. So $X$ can take only 3 values namely 1,2 and 3.
+Since we know that 
+\begin{align}
+\nonumber F\brak{1} &= \frac{a}{2}\\
+\nonumber \\
+\nonumber \Pr\brak{X\leq1} &= \frac{1}{2}\\
+\nonumber \\
+\nonumber \implies\frac{a}{2} &= \frac{1}{2}
+\end{align}
+Now we calculate the value of $c$ using the given expectation value. Since $X$
+is a discrete random variable the expectation value is given by 
+$$E\brak{X} = \sum_{i=1}^{3}\Pr\brak{X=i}\cdot i$$
+Since we need to find the individual probabilities we do that calculation first.
+Now since $X$ is a discrete random variable we have $\Pr\brak{X=1} = \Pr\brak{X\leq1} = \frac{1}{2}$\\And also since $F\brak{x}$ is a cdf we have $F\brak{2} = \Pr\brak{X=1}+\Pr\brak{X=2}$\\
+$$\implies \Pr\brak{X=2} = \frac{c}{6}-\frac{1}{2}$$
+Similarly we can say that $F\brak{3} = F\brak{2} + \Pr\brak{X=3}$
+$$\implies \Pr\brak{X=3} = 1 - \frac{c}{6}$$
+Now since we have all the probability values we can calculate the expectation value.
+\begin{align}
+\nonumber E\brak{X} &= \sum_{i=1}^{3}\Pr\brak{X=i}\cdot i\\
+\nonumber \\
+\nonumber &= \Pr\brak{1}.1 +2\Pr\brak{2} + 3\Pr\brak{3}\\
+\nonumber \\
+\nonumber &= \frac{1}{2}+ 2\brak{\frac{c}{6}-\frac{1}{2}}+3\brak[1-\frac{c}{6}]\\
+\nonumber \\
+\nonumber &= \frac{1}{2} + 2 - \frac{c}{6}\\
+\nonumber \\
+\nonumber \frac{5}{3} &= \frac{5}{2} - \frac{c}{6}\\
+\nonumber \\
+\nonumber \implies \frac{c}{6} &= \frac{5}{2} - \frac{5}{3}\\
+\nonumber \\
+\nonumber \frac{c}{6} &= \frac{5}{6}\\
+\nonumber \\
+\nonumber \therefore c &= 5
+\end{align}
+
+
+\subsection{Finding the range of A}
+Given that $A_n = \left[1+\frac{1}{n},3-\frac{1}{n}\right]$, $n\geq1$, and \\$A = \bigcup_{i=1}^{\infty}A_i$. We can see clearly that for any i we have $A_i \subset A_{i+1}$ and we also know the property that if $A$ is a subset of $B$ then we have $$A\cup B = B$$\\\\\\\\\\
+By applying the above principal we get that $A = A_\infty$ and since when $n \rightarrow \infty \implies \frac{1}{n} \rightarrow 0$ but not equal to 0 so we have $A = A_\infty = \brak{1,3}$
+
+\subsection{Finding the probability }
+We have to find the probability of  $\Pr\brak{X \in A}$ but we know that $X$ is a discrete random variable which can only take $X =1,2 \: \text{and}\: 3 $ as values and $A = \brak{1,3} $ and since the only value which $X$ can take in $A$ is 2. We have $\Pr\brak{X\in A} = \Pr\brak{X = 2}$. And we know that  
+\begin{align}
+\nonumber \Pr\brak{X =2 } &= \frac{c}{6} - \frac{1}{2}\\
+\nonumber \\
+\nonumber \Pr\brak{X =2 } &= \frac{5}{6} - \frac{1}{2} \quad \brak{\because c =5}\\
+\nonumber \\
+\nonumber \implies \Pr\brak{X = 2} &= \frac{1}{3}
+\end{align}
+Hence \\$$\therefore \Pr\brak{X \in A} = 0.33$$
+\end{document}
